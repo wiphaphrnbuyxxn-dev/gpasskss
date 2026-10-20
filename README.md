@@ -1,52 +1,87 @@
-<html>
+แน่นอนครับ ผมจะให้หน้าเว็บแบบลิงก์ที่พร้อมใช้งานเลย โดยคุณสามารถ save เป็น `index.html` แล้วเปิดในเบราว์เซอร์ได้ทันที
+
+```html name=index.html
+<!DOCTYPE html>
+<html lang="th">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>WAC10 Grade Viewer</title>
-    <style type="text/css">
-		table {
-		border-collapse: separate;
-		border-spacing: 10px 5px;
-		font-family: Tahoma;
-		font-size: 10pt;
-		border: 1px solid black;
-		}
-		th {
-			background-color: #ff794d;
-			color: white;
-		}
-		.stylePink
-		{
-			background-color: #FFCCFF;
-			height: 30;
-		}
-    </style>
-    <script language="javascript" type="text/javascript">
-    function validateForm()
-       {
-        var p=document.forms["gradeForm"]["ID"].value
-        var d=document.forms["gradeForm"]["BDate"].value
-        if (p==null || p=="" || d==null || d=="")
-          {
-             alert("กรุณากรอกข้อมูลให้ครบถ้วน");
-             return false;
-          }
-       }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WAC10 Grade Viewer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Tahoma, sans-serif;
+      background: linear-gradient(135deg, #fff5f0, #f1f8ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 700px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+      padding: 30px 25px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 28px;
+    }
+
+    .menu {
+      display: grid;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(135deg, #ff7a4d, #ff5a36);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.2s ease;
+      box-shadow: 0 6px 14px rgba(255, 122, 77, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .btn.secondary {
+      background: linear-gradient(135deg, #5aa7ff, #3d8bfd);
+      box-shadow: 0 6px 14px rgba(61, 139, 253, 0.3);
+    }
+
+    .btn.success {
+      background: linear-gradient(135deg, #46b775, #2e9d65);
+      box-shadow: 0 6px 14px rgba(46, 157, 101, 0.3);
+    }
+  </style>
 </head>
 <body>
-  <div align=center>
-  <FORM name="gradeForm" METHOD=POST ACTION="gradeviewer.php" onsubmit="return validateForm()">
-   <table>
-   <tr> <th colspan="3" align="center">ระบบแสดงผลการเรียน</th></tr>
-   <tr> <td align="right">เลขประจำตัวนักเรียน</td><td align="center"> :</td><td>
-        <INPUT TYPE="text" NAME="ID" size="10"></td> </tr>
-   <tr> <td align="right">วันเกิด วว/ดด/ปปปป</td><td align="center"> :</td><td>
-        <INPUT TYPE="text" NAME="BDate" size="10"></td> </tr>
-   <tr class="stylePink"> <td align="right" colspan="3">
-        <INPUT NAME="mSend" TYPE="submit" value="แสดงผลการเรียน" />
-        <INPUT NAME="mReset" TYPE="reset" value="ล้างข้อมูล" /></td></tr>
-  </table>
-  </FORM>
+  <div class="container">
+    <h1>ระบบแสดงผลการเรียน</h1>
+
+    <div class="menu">
+      <a class="btn" href="input.php">เข้าสู่ระบบแสดงผลการเรียน</a>
+      <a class="btn secondary" href="gradeviewer.php">ไปที่หน้าแสดงผล (แบบตรง)</a>
+      <a class="btn success" href="wac10xml.xml">ดูข้อมูลนักเรียน XML</a>
+      <a class="btn secondary" href="subjectxml.xml">ดูข้อมูลรายวิชา XML</a>
+    </div>
   </div>
 </body>
 </html>
+```
+
+ถ้าคุณต้องการ ผมสามารถทำให้ลิงก์หน้าต่อไปนี้ให้เป็นเวอร์ชันที่ "สวยกว่า/มีภาพ/มีเมนูแบบหน้าแรก" ให้ได้อีกแบบหนึ่งทันทีครับ
